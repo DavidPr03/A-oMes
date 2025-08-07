@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>D y J 💘</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom, #ffe0f0, #ffc1d3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: #4b2c36;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 90%;
+      padding: 20px;
+      background: #ffffffaa;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      margin-top: 30px;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .contador {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+
+    .poema {
+      font-size: 1.2em;
+      min-height: 80px;
+      margin-top: 20px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff7aa0;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #e9648f;
+    }
+
+    .foto {
+      margin-top: 30px;
+      max-width: 90%;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .trofeo {
+      margin: 30px auto;
+      width: 100px;
+    }
+
+    .trofeo svg {
+      width: 100%;
+      height: auto;
+    }
+
+    .iniciales {
+      font-size: 1.4em;
+      font-weight: bold;
+      margin-top: -20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Música -->
+  <audio id="bgMusic" loop>
+    <source src="love-me-again.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <!-- Contenido principal -->
+<div class="container">
+  <h1>D y J 💘</h1>
+  <div class="contador" id="contador"></div>
+  <div class="poema" id="poema">(Toca el botón para leer el poema y escuchar la canción 🎶)</div>
+
+  <!-- 🆕 Mensaje de aviso -->
+  <p id="mensajeLectura" style="font-style: italic; color: #aa336a; margin-top: 15px;">
+    🕒 Lee despacio y espera unos segundos entre cada línea, así la canción te acompaña hasta el final del poema 💖
+  </p>
+
+  <!-- Botón -->
+  <button id="poemaBtn" onclick="siguienteLinea()">💌 Siguiente línea</button>
+</div>
+
+
+  <!-- Foto -->
+  <img src="nosotros.jpg" alt="Foto de nosotros" class="foto"/>
+
+  <!-- Trofeo -->
+  <div class="trofeo">
+    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="#D4AF37">
+      <path d="M32 2C18 2 10 10 10 22s8 20 22 20 22-8 22-20S46 2 32 2zm0 36c-9.9 0-18-6.7-18-16S22.1 6 32 6s18 6.7 18 16-8.1 16-18 16z"/>
+      <path d="M24 44h16v4H24zM22 52h20v4H22z"/>
+    </svg>
+    <div class="iniciales">D & J</div>
+  </div>
+
+  <script>
+    // Contador de tiempo desde el 7 de julio de 2024
+    const fechaInicio = new Date("2024-07-07T00:00:00");
+
+    function actualizarContador() {
+      const ahora = new Date();
+      const diferencia = ahora - fechaInicio;
+
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+      const segundos = Math.floor((diferencia / 1000) % 60);
+
+      document.getElementById("contador").textContent = 
+        `Llevamos ${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos juntos 💕`;
+    }
+
+    setInterval(actualizarContador, 1000);
+    actualizarContador();
+
+    // Poema
+    const poema = [
+      "Un año y un mes jugando en pareja,",
+      "ni el mejor FIFA tiene esta estrategia.",
+      "Te conocí y fue gol desde el saque,",
+      "no hay defensa que a ti te opaque.",
+
+      "Eres mi 10, mi pase filtrado,",
+      "el partido perfecto que siempre he soñado.",
+      "Mi balón de oro, mi modo carrera,",
+      "la reina del campo, mi mejor manera.",
+
+      "Tus besos son como un gol al ángulo,",
+      "me dejan sin aire, sin cálculo.",
+      "Tus abrazos, mi barra alentando,",
+      "y tu sonrisa, mi equipo ganando.",
+
+      "Si tú eres un partido, yo soy el jugador,",
+      "que da el 100% por puro amor.",
+      "No hay glitch, bug ni desconexión,",
+      "que apague esta hermosa conexión.",
+
+      "A veces discutimos, hay falta o VAR,",
+      "pero el amor siempre vuelve a jugar.",
+      "Porque en este campo de sentimientos,",
+      "lo que vale son nuestros momentos.",
+
+      "Contigo juego sin pausa ni 'lag',",
+      "te elijo a ti, no hay otro tag.",
+      "Eres mi escudo, mi uniforme soñado,",
+      "mi club favorito, mi equipo amado.",
+
+      "Hoy celebro este año y un mes contigo,",
+      "no hay otro modo: tú y yo, de abrigo.",
+      "Nuestro amor no es de un solo torneo,",
+      "es una historia sin último juego.",
+
+      "Así que prepárate para el tiempo extra,",
+      "porque contigo la vida se conecta.",
+      "Y cuando llegue el pitido final,",
+      "mi alma seguirá amándote igual 💖"
+    ];
+
+    const poemaDiv = document.getElementById("poema");
+    const music = document.getElementById("bgMusic");
+    const boton = document.getElementById("poemaBtn");
+    let lineaActual = 0;
+    let reproduciendo = false;
+    let esperando = false;
+
+    function siguienteLinea() {
+      if (esperando) return; // evita doble clic
+
+      if (!reproduciendo) {
+        music.play();
+        reproduciendo = true;
+      }
+
+      if (lineaActual < poema.length) {
+        poemaDiv.textContent = poema[lineaActual];
+        lineaActual++;
+        esperando = true;
+
+        // Esperar 4.5 segundos antes de permitir siguiente línea
+        setTimeout(() => {
+          esperando = false;
+        }, 4500);
+      } else {
+        poemaDiv.textContent = "🏆 ¡Fin del poema, campeona de mi corazón!";
+        boton.disabled = true;
+      }
+    }
+  </script>
+</body>
+</html>
